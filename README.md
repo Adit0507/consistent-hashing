@@ -1,6 +1,6 @@
 
 ### Consistent Hashing example
-<img src="./assets/consistent.png" />
+<img src="./assets/consistent-hashing.png" />
 
 ### Load Balancing example
-<img src="./assets/load.png" />
+<img src="./assets/load-balancing.png" />
