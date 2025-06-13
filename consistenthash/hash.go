@@ -133,3 +133,20 @@ func (ch *ConsistentHash) GetNodes(key string, count int) ([]string, error) {
 
 	return nodes, nil
 }
+
+// return node resposnisble for givne key
+func (ch *ConsistentHash) GetNode(key string) (string, error) {
+	if len(ch.keys) == 0 {
+		return "", fmt.Errorf("no nodes available")
+	}
+
+	hash := utils.Hash(key)
+
+	// findin first node wit hash>= key hash
+	idx := ch.search(hash)
+	if idx == len(ch.keys) {
+		idx = 0
+	}
+
+	return ch.hashMap[ch.keys[idx]], nil
+}
